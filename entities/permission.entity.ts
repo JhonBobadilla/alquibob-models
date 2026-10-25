@@ -10,7 +10,7 @@ import {
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
-import { Status } from '../../shared/enums/status.enum';
+import { Status } from '../enums/status.enum';
 import { Resource } from './resource.entity';
 import { RolePermission } from './role-permission.entity';
 

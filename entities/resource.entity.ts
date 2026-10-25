@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Status } from '../../shared/enums/status.enum';
+import { Status } from '../enums/status.enum';
 import { Permission } from './permission.entity';
 
 @Entity('resources')

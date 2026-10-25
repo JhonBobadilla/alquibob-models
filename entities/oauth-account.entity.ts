@@ -21,7 +21,7 @@ export class OAuthAccount {
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @Column({ type: 'varchar', length: 36 })
+  @Column({ type: 'uuid' })
   userId: string;
 
   @Column({ type: 'enum', enum: OAuthProvider })

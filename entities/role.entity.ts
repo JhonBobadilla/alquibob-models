@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Status } from '../../shared/enums/status.enum';
+import { Status } from '../enums/status.enum';
 import { RolePermission } from './role-permission.entity';
 import { UserRole } from './user-role.entity';
 

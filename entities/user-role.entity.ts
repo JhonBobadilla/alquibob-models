@@ -20,7 +20,7 @@ export class UserRole {
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @Column({ type: 'varchar', length: 36 })
+  @Column({ type: 'uuid' })
   userId: string;
 
   @ManyToOne(() => Role, (role) => role.userRoles, { onDelete: 'CASCADE' })
