@@ -18,6 +18,7 @@ import {
  * no se pueden reservar.
  */
 @Entity('machines')
+@Index('idx_machines_categoria_modelo', ['categoria', 'modelo'])
 export class Machine {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -36,6 +37,15 @@ export class Machine {
   /** Agrupación del catálogo: Limpieza, Jardín, Herramientas. */
   @Column({ type: 'varchar', length: 40 })
   categoria: string;
+
+  /**
+   * Línea o modelo comercial dentro de la categoría («lavaspiradora de
+   * tapicería»). Varias unidades físicas comparten categoría + modelo: la
+   * descripción y la escalera de precios se editan una vez para todo el
+   * modelo.
+   */
+  @Column({ type: 'varchar', length: 80 })
+  modelo: string;
 
   /** Qué hace y para qué sirve. */
   @Column({ type: 'text' })
