@@ -81,6 +81,18 @@ export class Rental {
   @Column({ type: 'varchar', length: 191 })
   customerAddress: string;
 
+  /**
+   * `clients.id` dueño del pedido.
+   *
+   * Los datos de arriba son la **copia** de lo que dejó el cliente en ese
+   * pedido; esta referencia permite agrupar todos sus alquileres aunque haya
+   * escrito otro teléfono. `null` en pedidos viejos sin conciliar: el endpoint
+   * `POST /v1/clients/sync` los enlaza.
+   */
+  @Index('idx_rentals_client')
+  @Column({ type: 'uuid', nullable: true })
+  clientId: string | null;
+
   /** Cuándo se confirmó el pago. */
   @Column({ type: 'timestamp', nullable: true })
   paidAt: Date | null;
