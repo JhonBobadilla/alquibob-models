@@ -31,6 +31,20 @@ export class Machine {
   @Column({ type: 'varchar', length: 60 })
   slug: string;
 
+  /**
+   * Código único de la unidad: `CCMMUU`.
+   *
+   *   CC = tipo de máquina (01 Limpieza, 02 Jardín…)
+   *   MM = modelo dentro del tipo
+   *   UU = unidad dentro del modelo
+   *
+   * Ej.: `010102` = Limpieza → modelo 01 → unidad 02. Es el número que se
+   * escribe en la máquina física para seguirle el historial.
+   */
+  @Index('uq_machines_codigo', { unique: true })
+  @Column({ type: 'varchar', length: 6, nullable: true })
+  codigo: string | null;
+
   @Column({ type: 'varchar', length: 120 })
   nombre: string;
 
